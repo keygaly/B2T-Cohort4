@@ -16,11 +16,11 @@
 		<script>
 			var arr=[];
 			function pushPrompt(){
-				var fruit = prompt("Add more fruit");
+				var fruit = prompt("Add more fruit").toLowerCase();
+
 				arr.push(fruit);
 				
 				console.log(arr);
-
 				//function displayList(){
 				console.log(arr.sort());
 				document.getElementById("d").innerHTML = (arr.join(" with "));
