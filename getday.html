@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+		<h1 id="display"></h1>
+		<input type="button" value="get day" onclick="showDay()">
+
+		<script>
+
+			var today = new Date();
+			var day = today.getDay();
+
+			switch (parseInt(day)) {
+
+				case 0:
+					document.getElementById("display").innerHTML = Sunday;
+					break;
+				case 1:
+					document.getElementById("display").innerHTML = Monday;
+					break;
+				case 2:
+					document.getElementById("display").innerHTML = Tuesday;
+					break;
+				case 3:
+					document.getElementById("display").innerHTML = Wednesday;
+					break;
+				case 4:
+					document.getElementById("display").innerHTML = Thursday;
+					break;
+				case 5:
+					document.getElementById("display").innerHTML = Friday;
+					break;
+				case 6:
+					document.getElementById("display").innerHTML = Saturday;
+				}
+
+					function showDay() {
+						document.getElementById("display").innerHTML = today;
+						console.log(today);
+
+				}
+
+		</script>
+
+	</body>
+</html>
+
