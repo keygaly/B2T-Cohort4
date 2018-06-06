@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+		<h1 id="fizz"></h1>
+
+		<script>
+			var num = 1;
+			while(num <=100){
+				if(num % 3 == 0 && num % 5 == 0){
+					document.getElementById("fizz").innerHTML += "FizzBuzz" + "<br>";
+				}
+				else if(num % 3 == 0){
+					document.getElementById("fizz").innerHTML += "Fizz" + "<br>";
+				}
+				else if(num % 5 == 0){
+					document.getElementById("fizz").innerHTML += "Buzz" + "<br>";
+				}
+				else{
+					document.getElementById("fizz").innerHTML += num + "<br>";
+				}
+
+				num++;
+			}
+		</script>
+
+	</body>
+</html>
