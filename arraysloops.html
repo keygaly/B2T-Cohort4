@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Arrays and Loops</title>
+	</head>
+	<body>
+
+
+		<ul id="colors"></ul>
+		
+
+
+		<script>
+			// list colors in the array along with "for" algorythm
+			// log index numbers of colors
+			//list 1st 2nd 3rd, etc positions as an array along with "for" algorythm
+			//print the position and corresponding color in vertical list form <li>...
+			var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+				for(i=0; i < color.length; i++){
+					console.log(color[i] + " is at index " + i);
+				}
+
+			var order = ["1st", "2nd", "3rd", "4th", "5th","6th", "7th"];
+				for(i=0; i < order.length; i++){
+						document.getElementById("colors").innerHTML += "<li>" + order[i]  +  ' choice is '  + color[i] + "</li>";
+
+				}
+
+				
+
+
+		</script>
+
+	</body>
+</html>
