@@ -2,14 +2,56 @@
 <html>
 	<head>
 		<title></title>
+
+		<style type="text/css">
+			#rubix {background: red; width: 250px; height: 250px; margin-left: 600px; margin-top: 75px; text-align: center; color: white;} .btn {margin-top: 50px; margin-left: 700px} .font {font-size: 16px; margin-top: 200px; margin-left: 670px}
+		</style>
+
 	</head>
 	<body>
 
-		<input id="label" type="button" value="On">
+		<h1 class="font">Click Button</h1>
+		<input id="label" type="button" value="On" class="btn">
 
+		<div id="rubix">
 
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			(((HOVER)))<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+		</div>
+		
 		<script>
-			function toggle (){
+			function changeColor(){
+				var cube = document.getElementById("rubix");
+    			if(cube.style.background == "green"){
+    				cube.style.background = "red";
+    			}
+    			else{cube.style.background = "green";
+
+    			}
+    		}
+				
+			document.getElementById("rubix").addEventListener("mouseenter", changeColor);
+			document.getElementById("rubix").addEventListener("mouseleave", changeColor);
+
+
+
+
+
+		function toggle (){
+			//box represents on/off button
 				var box = document.getElementById("label");
 				if(box.value == "On"){
 					box.value = "Off";
@@ -20,9 +62,10 @@
 			}
 
 			document.getElementById("label").addEventListener("click", toggle);
-			
+			document.getElementById("label").addEventListener("click", toggle);
 
 
+		
 			
 
 		</script>
