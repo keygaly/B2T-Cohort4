@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+		<input id="label" type="button" value="On">
+
+
+		<script>
+			function toggle (){
+				var box = document.getElementById("label");
+				if(box.value == "On"){
+					box.value = "Off";
+				}
+				else{
+					box.value = "On";
+				}
+			}
+
+			document.getElementById("label").addEventListener("click", toggle);
+			
+
+
+			
+
+		</script>
+
+	</body>
+</html>
