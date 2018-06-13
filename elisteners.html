@@ -33,13 +33,17 @@
 		</div>
 		
 		<script>
+			//cube represents the square div
 			function changeColor(){
+				var box = document.getElementById("label");
 				var cube = document.getElementById("rubix");
-    			if(cube.style.background == "green"){
+				if(box.value =="Off"){
+					cube = "red";
+				}
+				if(cube.style.background == "green"){
     				cube.style.background = "red";
     			}
     			else{cube.style.background = "green";
-
     			}
     		}
 				
