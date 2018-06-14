@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+		<h1 id="status1"></h1>
+
+		<script>
+
+			function result(){
+				document.getElementById("label");
+			}
+
+
+			checkStatus();
+			function checkStatus(){
+			var library = [
+		   {author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true},
+		   {author: 'Steve Jobs', title: 'Walter Isaacson', readingStatus: true},
+		   {author: 'Suzanne Collins', title:  'Mockingjay: The Final Book of The Hunger Games', readingStatus:false}
+		   ];
+
+   					
+   					for(var i=0; i < library.length; i++){
+					
+					if(library[i].readingStatus == true){
+
+						 document.getElementById("status1").innerHTML += "Already read " + library[i].title + " by " + library[i].author + "<br>";
+					}
+					
+					else {
+						 document.getElementById("status1").innerHTML += "You still need to read " + library[i].title + " by " + library[i].author + "<br>";
+
+						}
+
+
+				}
+
+			}
+
+		</script>
+			
+
+	</body>
+</html>
+
+
+
+<!-- dealing with an array of books.  need to check/loop through every element of the array to see whether status is ... is true or 
+false.
+
+{ author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true },
+   { author: 'Steve Jobs', title: 'Walter Isaacson', readingStatus: true },
+   { author: 'Suzanne Collins', title:  'Mockingjay: The Final Book of The Hunger Games', readingStatus: false }
+];
+If the reading status is true display “Already read '<insert title>' by <insert author>.”
+● If the reading status is false display “You still need to read '<insert title>' by <insert author>.”
+● Display results on webpage
