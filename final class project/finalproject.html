@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+
+		<style type="text/css"> #box {background: white; opacity: 0.7; height: 500px; width:769px; margin-left: 300px; margin-top: 40px; overflow-y: scroll;} #nav {margin-left: 300px; margin-top: 100px} body{background-repeat: repeat-x} #banner{margin-left: 190px;}
+			
+		</style>
+		}
+		
+	</head>
+	<body background="images/library-1.jpg">
+
+		
+		<div id="nav">
+	
+		<input id="who" style = "height: 20px" type="text" placeholder="Member Name">
+		<input id="book" style = "height: 20px" type="text" placeholder="Enter Book Title">
+		<input id="autor" style = "height: 20px" type="text"  placeholder="Enter Name of Author">
+		<input type="button" id ="btn" value="Check Availability" onclick="bookStatus()">
+		<input type="button" id="btn" value="Withdraw Book" onclick="withdrawBook()">
+		<input type="button" id="btn" value="Deposit Book" onclick="addBook()">
+		<input type="button" id="btn" value="Inventory" onclick="bookTotal()">
+
+		</div>
+
+		<div id="box">
+			<h1 id="banner">Welcome to Trinity Library</h1>
+		
+		<h1 id="list" style="color: black"></h1>
+		<ul id="booklist" style="color: black"></ul>
+			
+
+		</div>
+
+
+		<script>
+    
+
+			
+			
+			var catalog = [{title: "don quixote", author: "miguel de cervantes saavedra"}, {title: "a clockwork orange", author: "anthony burgess"}, {title: "atlas shrugged", author: "ayn rand"}, {title: "the nose", author: "nikolai gogol"}, {title: "metamorphosis", author: "franz kafka"}, {title: "green eggs and ham", author: "dr. seuss"}, {title: "the raven", author: "edgar allen poe"}, {title: "tropic of cancer", author: "henry miller"}, {title: "dead souls", author: "nikolai gogol"}, {title: "women of algiers in their apartments", author: "assia djebar"}, {title: "orientalism", author: "edward w. said"}, {title: "the plague", author: "albert camus"}, {title: "the tipping point", author: "malcolm gladwell"}, {title: "a feeling for the organism", author: "evelyn fox keller"}, {title: "act of creation: the founding of the united nations", author: "stephen c. schlesinger"}, {title: "germany from partition to reunification", author: "henry ashby turner, jr."}, {title: "before the deluge", author: "otto friedrich"}, {title: "storm of steel", author: "ernst jünger"}, {title: "ancient israelite religion",author: "susan niditch"}, {title: "the metaphysical elements of justice", author: "immanuel kant"}, {title: "hegel's philosophy of right", author: "hegel"}, {title: "quicksilver", author: "neal stephenson"}, {title: "you don't know javascript", author: " kyle simpson"},{title: "the hunger games", author: "suzanne collins"}, {title: "pride and prejudice", author: "jane austen"}, {title: "to kill a mockingbird", author: "harper lee"}, {title: "wuthering heights", author: "emily brontë"}, {title: "the da vinci code", author: "shel silverstein"}, {title: "lord of the flies", author: "william golding"}, {title: "poor folk", author: "fyodor dostoevsky"}];
+
+			
+			
+			function book(){
+				return{
+
+					title: document.getElementById("book").value,
+					author: document.getElementById("autor").value,
+					student: document.getElementById("who").value,
+					
+				};
+				
+			}
+			
+			function bookStatus(){
+				//catalog.unshift(book());
+
+				//displaybook();
+				var title = document.getElementById("book").value.toLowerCase();
+				var author = document.getElementById("autor").value.toLowerCase();
+
+				for(var i=0; i<catalog.length; i++){
+					if(catalog[i].title == title && catalog[i].author == author){
+						document.getElementById("booklist").innerHTML = title + " by " + author + " is available";
+						break;
+					}
+					else{
+						document.getElementById("booklist").innerHTML = title + " by " + author + " is not available";
+					}
+				}
+			}
+
+
+
+		
+			function bookTotal(){
+				document.getElementById("booklist").innerHTML = "There are " + catalog.length + " books in your catalog";
+				for(var i = 0; i<catalog.length; i++){
+					
+				
+				document.getElementById("booklist").innerHTML += "<li>" + catalog[i].title + " by " + catalog[i].author + " is available.</li>";
+
+				}
+			}
+
+
+			
+			function withdrawBook(){
+
+				var title = document.getElementById("book").value.toLowerCase();
+				var author = document.getElementById("autor").value.toLowerCase();
+				var student = document.getElementById("who").value.toLowerCase();
+				
+
+				var withdrawindex;
+				for(var i = 0; i < catalog.length; i++){
+					if(catalog[i].title == title && catalog[i].author == author){
+						withdrawindex = i;//needed to creat a variable to hold the index to
+
+						document.getElementById("list").innerHTML = catalog[withdrawindex].title + " by " + catalog[withdrawindex].author + " was withdrawn from catalog " + " by " + student  + " on " +  new Date; 
+					var removedBook = catalog.splice(withdrawindex, 1);
+					bookTotal(); //this is for refreshing the list
+
+
+					}
+					
+				}
+			
+
+			}			
+					
+			
+
+
+
+			function addBook(){
+					var newBook = book()
+					catalog.unshift(newBook);	
+
+					document.getElementById("list").innerHTML = catalog[0].title + " by " + catalog[0].author + " was added to catalog " + " by " + catalog[0].student + " on " + new Date;
+					bookTotal();
+		
+			}
+
+
+	
+
+
+
+		</script>
+
+	</body>
+</html>
+
+
+
+<!--
+
+create a Catalog "var name =[];"" to hold list of Books 
+create Book (Class)/blueprint/prototype/object to hold book info -- function(){info here}  
+title:
+author: 
+status: (available, checked out(with date), or returned(added) )
+student:
+checkedOut: new Date()
+checkedIn: new Date()
+
+
+
+create inputs to log book information
+create button to add books to catalog
+create popup display book info
+
+keep track of number of books in catalog
+list of books checked in (put/push)
+list of books checked out (pull/ shift)
+
+
+User Goals:
+
+Keep track of how many books are currently in library inventory
+Wants a visual cue of the library inventory that includes who, when and quantity
+Wants the ability to checkout a book while documenting the quantity and name of student.
+
+Narrative: 
+Sophia is a student at University of New York and working as a lead student librarian under the work-study program. Sophia was given a budget of $1000 to hire a fellow student from the engineering department to develop a web app that would help her keep track of the library inventory. Sophia is very busy trying to keep up with her studies and library inventory, she is frustrated about the cumbersome process of manually keeping track of hundreds of books. The ideal workplace for Sophia would be an environment where she can study and have a web app that does all the work for her on keeping track which books are in / out and the quantity. 
+
+
+
+
+save index in another variable for ( withdrawal)
+use that variable to splice that book out of list

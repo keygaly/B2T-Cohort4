@@ -9,12 +9,7 @@
 
 		<script>
 
-			function result(){
-				document.getElementById("label");
-			}
-
-
-			checkStatus();
+			checkStatus()
 			function checkStatus(){
 			var library = [
 		   {author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true},
@@ -22,23 +17,20 @@
 		   {author: 'Suzanne Collins', title:  'Mockingjay: The Final Book of The Hunger Games', readingStatus:false}
 		   ];
 
-   					
-   					for(var i=0; i < library.length; i++){
-					
-					if(library[i].readingStatus == true){
-
-						 document.getElementById("status1").innerHTML += "Already read " + library[i].title + " by " + library[i].author + "<br>";
-					}
-					
-					else {
-						 document.getElementById("status1").innerHTML += "You still need to read " + library[i].title + " by " + library[i].author + "<br>";
-
-						}
-
+		   		
+				for(var i=0; i < library.length; i++){
+				if(library[i].readingStatus == true){
+					document.getElementById("status1").innerHTML += "Already read " + library[i].title + " by " + library[i].author + "<br>";
 
 				}
-
-			}
+				else {document.getElementById("status1").innerHTML += "You still need to read " + library[i].title + " by " + library[i].author + "<br>";
+	
+						}	
+					
+					}
+				}
+				
+						
 
 		</script>
 			
