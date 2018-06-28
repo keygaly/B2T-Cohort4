@@ -35,11 +35,9 @@
 
 
 		<script>
-    
 
 			
-			
-			var catalog = [{title: "don quixote", author: "miguel de cervantes saavedra"}, {title: "a clockwork orange", author: "anthony burgess"}, {title: "atlas shrugged", author: "ayn rand"}, {title: "the nose", author: "nikolai gogol"}, {title: "metamorphosis", author: "franz kafka"}, {title: "green eggs and ham", author: "dr. seuss"}, {title: "the raven", author: "edgar allen poe"}, {title: "tropic of cancer", author: "henry miller"}, {title: "dead souls", author: "nikolai gogol"}, {title: "women of algiers in their apartments", author: "assia djebar"}, {title: "orientalism", author: "edward w. said"}, {title: "the plague", author: "albert camus"}, {title: "the tipping point", author: "malcolm gladwell"}, {title: "a feeling for the organism", author: "evelyn fox keller"}, {title: "act of creation: the founding of the united nations", author: "stephen c. schlesinger"}, {title: "germany from partition to reunification", author: "henry ashby turner, jr."}, {title: "before the deluge", author: "otto friedrich"}, {title: "storm of steel", author: "ernst jünger"}, {title: "ancient israelite religion",author: "susan niditch"}, {title: "the metaphysical elements of justice", author: "immanuel kant"}, {title: "hegel's philosophy of right", author: "hegel"}, {title: "quicksilver", author: "neal stephenson"}, {title: "you don't know javascript", author: " kyle simpson"},{title: "the hunger games", author: "suzanne collins"}, {title: "pride and prejudice", author: "jane austen"}, {title: "to kill a mockingbird", author: "harper lee"}, {title: "wuthering heights", author: "emily brontë"}, {title: "the da vinci code", author: "shel silverstein"}, {title: "lord of the flies", author: "william golding"}, {title: "poor folk", author: "fyodor dostoevsky"}];
+			var catalog = [{title: "don quixote", author: "miguel de cervantes saavedra"}, {title: "a clockwork orange", author: "anthony burgess"}, {title: "atlas shrugged", author: "ayn rand"}, {title: "the nose", author: "nikolai gogol"}, {title: "metamorphosis", author: "franz kafka"}, {title: "green eggs and ham", author: "dr. seuss"}, {title: "the raven", author: "edgar allen poe"}, {title: "tropic of cancer", author: "henry miller"}, {title: "dead souls", autahor: "nikolai gogol"}, {title: "women of algiers in their apartments", author: "assia djebar"}, {title: "orientalism", author: "edward w. said"}, {title: "the plague", author: "albert camus"}, {title: "the tipping point", author: "malcolm gladwell"}, {title: "a feeling for the organism", author: "evelyn fox keller"}, {title: "act of creation: the founding of the united nations", author: "stephen c. schlesinger"}, {title: "germany from partition to reunification", author: "henry ashby turner, jr."}, {title: "before the deluge", author: "otto friedrich"}, {title: "storm of steel", author: "ernst jünger"}, {title: "ancient israelite religion",author: "susan niditch"}, {title: "the metaphysical elements of justice", author: "immanuel kant"}, {title: "hegel's philosophy of right", author: "hegel"}, {title: "quicksilver", author: "neal stephenson"}, {title: "you don't know javascript", author: " kyle simpson"},{title: "the hunger games", author: "suzanne collins"}, {title: "pride and prejudice", author: "jane austen"}, {title: "to kill a mockingbird", author: "harper lee"}, {title: "wuthering heights", author: "emily brontë"}, {title: "the da vinci code", author: "shel silverstein"}, {title: "lord of the flies", author: "william golding"}, {title: "poor folk", author: "fyodor dostoevsky"}];
 
 			
 			
@@ -55,11 +53,15 @@
 			}
 			
 			function bookStatus(){
+				if(document.getElementById("book").value.toLowerCase() !== "" &&  document.getElementById("autor").value.toLowerCase() !== ""){
+
+				}else{alert("Please enter Title and Author")}
 				//catalog.unshift(book());
 
 				//displaybook();
 				var title = document.getElementById("book").value.toLowerCase();
 				var author = document.getElementById("autor").value.toLowerCase();
+				var student = document.getElementById("who").value.toLowerCase();
 
 				for(var i=0; i<catalog.length; i++){
 					if(catalog[i].title == title && catalog[i].author == author){
@@ -73,21 +75,11 @@
 			}
 
 
-
-		
-			function bookTotal(){
-				document.getElementById("booklist").innerHTML = "There are " + catalog.length + " books in your catalog";
-				for(var i = 0; i<catalog.length; i++){
-					
-				
-				document.getElementById("booklist").innerHTML += "<li>" + catalog[i].title + " by " + catalog[i].author + " is available.</li>";
-
-				}
-			}
-
-
 			
 			function withdrawBook(){
+				if(document.getElementById("book").value.toLowerCase() !== "" &&  document.getElementById("autor").value.toLowerCase() !== ""){
+
+				}else{alert("Please complete all data fields")}
 
 				var title = document.getElementById("book").value.toLowerCase();
 				var author = document.getElementById("autor").value.toLowerCase();
@@ -114,15 +106,36 @@
 			
 
 
-
 			function addBook(){
+
+					if(document.getElementById("book").value.toLowerCase() !== "" &&  document.getElementById("autor").value.toLowerCase() !== "" && document.getElementById("who").value.toLowerCase() !== ""){
+
+					
+
 					var newBook = book()
 					catalog.unshift(newBook);	
 
 					document.getElementById("list").innerHTML = catalog[0].title + " by " + catalog[0].author + " was added to catalog " + " by " + catalog[0].student + " on " + new Date;
 					bookTotal();
-		
+				}else{
+					alert("please complete all data fields")
+				}
 			}
+
+
+			
+			function bookTotal(){
+
+
+				document.getElementById("booklist").innerHTML = "There are " + catalog.length + " books in your catalog";
+				for(var i = 0; i<catalog.length; i++){
+					
+				
+				document.getElementById("booklist").innerHTML += "<li>" + catalog[i].title + " by " + catalog[i].author + " is available.</li>";
+
+				}
+			}
+
 
 
 	
@@ -151,11 +164,10 @@ checkedIn: new Date()
 
 create inputs to log book information
 create button to add books to catalog
-create popup display book info
+
 
 keep track of number of books in catalog
-list of books checked in (put/push)
-list of books checked out (pull/ shift)
+
 
 
 User Goals:
